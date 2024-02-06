@@ -13,6 +13,11 @@ body {
     font-family: var(--font-family);
 }
 
+p {
+    font-size: 18px;
+    line-height: 30px;
+}
+
 .visually-hidden {
     position: absolute;
     width: 1px;
@@ -25,4 +30,4 @@ body {
     clip-path: inset(100%);
     clip: rect(0 0 0 0);
     overflow: hidden;
-  }
+}

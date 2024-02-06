@@ -1,10 +1,20 @@
+.body-home {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+/* Landen cards */
 .landen-cards {
     display: flex;
     flex-direction: row;
     overflow-x: auto;
     gap: 20px;
-    padding: 20px;
+    padding: 20px 20px 0px 20px;
 }
+
+.landen-cards::-webkit-scrollbar {
+    display: none;
+  }
 
 .landen-cards article {
     position: relative;
@@ -15,6 +25,7 @@
     bottom: 20px;
     left: 30px;
     color: var(--white);
+    z-index: 1;
 }
 
 .landen-cards img {
@@ -27,8 +38,101 @@
 .overlay {
     position: absolute;
     top: 0;
-    bottom: 0;
     left: 0;
-    right: 0;
-    /* background-color: rgba(var(--black), 0.8); */
+    width: 100%;
+    height: 100%;  
+    border-radius: 20px;
+    background-color: rgba(var(--black-rgb), 0.5);
+}
+
+.landen-cards .overlay {
+    height: 230px;
+}
+
+/* Top 3 */
+.main-home {
+    padding: 0px 20px;
+}
+
+.main-home h1 {
+    margin: 0px 0px 20px 0px;
+    font-size: 26px;
+    line-height: 31px;
+}
+
+.main-home section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.main-home article {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 0px 10px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgba(var(--blue-rgb), 0.5);
+}
+
+.main-home h2 {
+    font-size: 18px;
+    line-height: 30px;
+}
+
+.main-home img {
+    grid-row-start: 1;
+    grid-row-end: 4;
+    width: 90px;
+    height: 90px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+/* Button */
+.main-home a {
+    display: block;
+    padding: 25px;
+    border-radius: 10px;
+    border: 1px solid var(--red);
+    background-color: var(--red);
+    color: var(--white);
+    font-family: var(--font-family);
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    transition: .4s;
+}
+
+.main-home a:hover {
+    background-color: transparent;
+    color: var(--red);
+}
+
+.banner {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+    margin: 0px 20px 20px 20px;
+    padding: 20px 30px 30px 30px;
+    border-radius: 20px;
+    background-image: url("../img/country-korea.jpg");
+    background-size: cover;
+    color: var(--white);
+}
+
+.banner .overlay {
+    background-color: rgba(var(--black-rgb), 0.7);
+}
+
+.banner h3, .banner p {
+    position: relative;
+    z-index: 1;
+}
+
+.banner h3 {
+    font-size: 16px;
+    line-height: 28px;
 }

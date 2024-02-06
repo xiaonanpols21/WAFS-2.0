@@ -1,11 +1,13 @@
-var express = require('express');
-var app = express();
+// Packages
+const express = require('express');
 
-// set the view engine to ejs
-app.set('view engine', 'ejs');
+// Site laten werken
+const app = express();
+const port = 3000;
 
-// use res.render to load up an ejs view file
+// Public, View
 app.use(express.static('public'))
+app.set('view engine', 'ejs');
 
 // index page
 app.get('/', function(req, res) {
@@ -13,9 +15,10 @@ app.get('/', function(req, res) {
 });
 
 // about page
-app.get('/about', function(req, res) {
-  res.render('pages/about');
+app.get('/home', function(req, res) {
+  res.render('pages/home');
 });
 
-app.listen(3000);
-console.log('Server is listening on port 3000');
+app.listen(port, () => {
+  console.log(`EServer is listening on port ${port}`);
+})

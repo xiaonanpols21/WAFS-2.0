@@ -1,0 +1,22 @@
+@import "./start.css";
+@import "./breakpoints.css";
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+:root {
+    --font-family: 'Poppins', sans-serif;
+
+    --red: #C33702;
+    --white: #ffffff;
+    --black: #151E25;
+}
+
+body {
+    font-family: var(--font-family);
+}
+
+

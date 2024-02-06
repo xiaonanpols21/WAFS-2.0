@@ -1,26 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <%- include('../partials/head'); %>
-</head>
-<body class="container">
+<html lang="nl">
+<%- include('../partials/head'); %>
 
-<header>
-  <%- include('../partials/header'); %>
-</header>
+<body class="body-start">
+  <main>
+    <section class="section-start">
+      <h1>Xiao Foods</h1>
+      <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna.</p>
+      <a href="/home">Bekijk gerechten</a>
 
-<main>
-  <div class="jumbotron">
-    <h1>This is bad</h1>
-    <p>Welcome to templating using EJS</p>
-  </div>
-</main>
+      <!-- Data fetchen -->
+      <ul>
+        <li><img src="./img/hero-1.JPG" alt="Xiao dood gaan van eten"> </li>
+        <li><img src="./img/hero-2.JPG" alt="Xiao met ijs"> </li>
+        <li><img src="./img/hero-3.JPG" alt="Xiao en kip met kip op tand"> </li>
+      </ul>
 
-<footer>
-  <%- include('../partials/footer'); %>
-</footer>
-
-<script src="/index.js"></script>
-
+    </section>
+  </main>
+  <script src="/index.js"></script>
 </body>
 </html>

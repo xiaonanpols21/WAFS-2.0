@@ -3,21 +3,28 @@
 <%- include('../partials/head'); %>
 
 <body>
-  <main>
-    <div class="row">
-      <div class="col-sm-8">
-        <div class="jumbotron">
-          <h1>This is great</h1>
-          <p>Welcome to templating using EJS</p>
-        </div>
-      </div>
-
-      <div class="col-sm-4">
-        <div class="well">
-          <h3>Look I'm A Sidebar!</h3>
-        </div>
-      </div>
-    </div>
-  </main>
+  <section class="landen-cards">
+    <h3 class="visually-hidden">Landen kaarten</h3>
+    <a href="/">
+        <article>
+            <h2>Korea</h2>
+            <img src="./img/country-korea.jpg" alt="Foto van Koreaans eten" />
+            <div class="overlay"></div>
+        </article>
+    </a>
+    <a href="/">
+        <article>
+            <h2>China</h2>
+            <img src="./img/country-china.jpg" alt="Foto van Chinees eten" />
+            <div class="overlay"></div>
+        </article>
+    </a>
+    <a href="/">
+        <article>
+            <h2>Japan</h2>
+            <img src="./img/country-japan.jpg" alt="Foto van Japans eten" />
+            <div class="overlay"></div>
+        </article>
+    </a>
 </body>
 </html>

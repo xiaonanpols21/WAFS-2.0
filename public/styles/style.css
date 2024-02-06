@@ -1,4 +1,6 @@
+@import "./variables.css";
 @import "./start.css";
+@import "./home.css";
 @import "./breakpoints.css";
 
 * {
@@ -7,16 +9,20 @@
     box-sizing: border-box;
 }
 
-:root {
-    --font-family: 'Poppins', sans-serif;
-
-    --red: #C33702;
-    --white: #ffffff;
-    --black: #151E25;
-}
-
 body {
     font-family: var(--font-family);
 }
 
-
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+  }

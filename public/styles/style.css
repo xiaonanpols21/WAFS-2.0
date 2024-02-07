@@ -1,6 +1,7 @@
 @import "./variables.css";
 @import "./start.css";
 @import "./home.css";
+@import "./food.css";
 @import "./breakpoints.css";
 
 * {

@@ -83,7 +83,7 @@
     gap: 0px 10px;
     padding: 10px;
     border-radius: 10px;
-    background-color: rgba(var(--blue-rgb), 0.5);
+    background-color: var(--blue-50);
 }
 
 .main-home h2 {

@@ -3,6 +3,12 @@
     flex-direction: column;
     gap: 50px;
 }
+
+.body-home div:last-of-type {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
 /* Landen cards */
 .landen-cards {
     display: flex;
@@ -58,6 +64,11 @@
     margin: 0px 0px 20px 0px;
     font-size: 26px;
     line-height: 31px;
+}
+
+.main-home p {
+    font-size: 14px;
+    line-height: 23px;
 }
 
 .main-home section {

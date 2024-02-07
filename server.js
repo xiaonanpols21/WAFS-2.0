@@ -9,14 +9,17 @@ const port = 3000;
 app.use(express.static('public'))
 app.set('view engine', 'ejs');
 
-// index page
+// Pages
 app.get('/', function(req, res) {
   res.render('pages/index');
 });
 
-// about page
 app.get('/home', function(req, res) {
   res.render('pages/home');
+});
+
+app.get('/gerechten', function(req, res) {
+  res.render('pages/food');
 });
 
 app.listen(port, () => {

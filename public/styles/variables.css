@@ -1,6 +1,7 @@
 :root {
     --font-family: 'Poppins', sans-serif;
 
+    --red-rgb: 195, 55, 2;
     --red: #C33702;
     --white: #ffffff;
     --black-rgb: 21, 30, 37;

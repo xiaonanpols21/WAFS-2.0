@@ -23,26 +23,42 @@ app.get('/gerechten', function(req, res) {
 });
 
 // Fetch data
-const url = 'https://food-recipes-with-images.p.rapidapi.com/?q=korea';
-const options = {
-    method: 'GET',
-    headers: {
-        'X-RapidAPI-Key': 'c20e05d39emsh51bf7509082730ep146d0cjsn622276aaec1a',
-        'X-RapidAPI-Host': 'food-recipes-with-images.p.rapidapi.com'
-    }
-};
+const fs = require('fs');
+const path = require('path');
 
 async function fetchData() {
-    try {
-        const response = await fetch(url, options);
-        const result = await response.json();
-        console.log(result);
-    } catch (error) {
+  try {
+    const koreaData = await readFile('./public/data/korea.json');
+    const chinaData = await readFile('./public/data/china.json');
+    const japanData = await readFile('./public/data/japan.json');
+
+    // Combine the data from all JSON files into a single array or object
+    const combinedData = {
+        korea: JSON.parse(koreaData),
+        china: JSON.parse(chinaData),
+        japan: JSON.parse(japanData)
+    };
+    console.log(combinedData);
+    
+  } catch (error) {
         console.error(error);
-    }
+  }
+}
+
+async function readFile(filePath) {
+    return new Promise((resolve, reject) => {
+        fs.readFile(filePath, 'utf8', (err, data) => {
+            if (err) {
+                reject(err);
+            } else {
+                resolve(data);
+            }
+        });
+    });
 }
 
 fetchData();
+
 
 
 

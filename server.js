@@ -17,7 +17,7 @@ app.get('/', function(req, res) {
 
 app.get('/home', async function(req, res) {
     try {
-      const top3 = await fetchData();
+      const {top3} = await fetchData();
       res.render('pages/home', {
           top3
       });
@@ -27,16 +27,32 @@ app.get('/home', async function(req, res) {
     }
   });
 
+// TODO: WIKI en alles nalopen of code klopt
+// Filteren op Country met URL
+// Zie prompts: https://chemical-bunny-323.notion.site/Chat-GPT-Documentatie-d93ea570990b4754bec559e9bfcc2217#b44bf72ac5ed4c23bbce69e9ec82b7e5
 app.get('/gerechten', async function(req, res) {
-  try {
-    const addCountry = await fetchData();
-    res.render('pages/food', {
-        addCountry
-    });
-  } catch (error) {
-    console.error(error);
-    res.status(500).send('Error fetching data');
-  }
+    try {
+        const { country } = req.query; // Extract the country query parameter
+        let filteredData;
+
+        // Fetch and filter data based on the selected country if the country query parameter exists
+        if (country) {
+            const { addCountry } = await fetchData();
+            filteredData = addCountry.filter(item => item.Country === country);
+        } else {
+            // If no country is selected, fetch all data
+            const { addCountry } = await fetchData(); // Corrected destructuring
+            filteredData = addCountry;
+        }
+
+        // Render the page with the filtered or normal data
+        res.render('pages/food', {
+            addCountry: filteredData
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error fetching data');
+    }
 });
 
 // Fetch data Chat GPT
@@ -45,87 +61,65 @@ const fs = require('fs');
 const path = require('path');
 
 async function fetchData() {
-  try {
-    const koreaData = await readFile('./public/data/korea.json');
-    const chinaData = await readFile('./public/data/china.json');
-    const japanData = await readFile('./public/data/japan.json');
+    try {
+        const koreaData = await readFile('./public/data/korea.json');
+        const chinaData = await readFile('./public/data/china.json');
+        const japanData = await readFile('./public/data/japan.json');
 
-    // Combine the data from all JSON files into a single array or object
-    const combinedData = {
-        korea: JSON.parse(koreaData),
-        china: JSON.parse(chinaData),
-        japan: JSON.parse(japanData)
-    };
-
-    // Get only the food from combinedData
-    // Zie prompts: https://chemical-bunny-323.notion.site/Chat-GPT-Documentatie-d93ea570990b4754bec559e9bfcc2217#a43f8e45789046b3bb341ba1de471d12
-    const onlyFoodData = [];
-    Object.keys(combinedData).forEach(item => {
-        const itemData = combinedData[item];
-        const itemDataArray = itemData.d;
-
-        onlyFoodData.push(...itemDataArray);
-    });
-
-    // Convert id from string to number
-    // Zie prompts: https://chemical-bunny-323.notion.site/Chat-GPT-Documentatie-d93ea570990b4754bec559e9bfcc2217#a43f8e45789046b3bb341ba1de471d12
-    const changeId = onlyFoodData.map(item => {
-        return {
-            ...item,
-            id: parseInt(item.id, 10) // Parse id to number
+        // Combine the data from all JSON files into a single array or object
+        const combinedData = {
+            korea: JSON.parse(koreaData),
+            china: JSON.parse(chinaData),
+            japan: JSON.parse(japanData)
         };
-    }).sort((a, b) => a.id - b.id); // Sort, Zie prompts: https://chemical-bunny-323.notion.site/Chat-GPT-Documentatie-d93ea570990b4754bec559e9bfcc2217#29c2ce5ffaf14cf3bad06a80e652691d
 
-    // TODO: WIKI toevoegen
-    // Add Country
-    // Zie prompts: https://chemical-bunny-323.notion.site/Chat-GPT-Documentatie-d93ea570990b4754bec559e9bfcc2217#a0daa7e8785b49b0a24cafc58861c960
-    const addCountry = [];
-    changeId.forEach(item => {
-    if (item.Title.toLowerCase().includes("korea")) {
-        addCountry.push({
-        ...item,
-        Country: "Korea"
+        // Get only the food from combinedData
+        const onlyFoodData = [];
+        Object.keys(combinedData).forEach(item => {
+            const itemData = combinedData[item];
+            const itemDataArray = itemData.d;
+            onlyFoodData.push(...itemDataArray);
         });
-    } else if (item.Title.toLowerCase().includes("japan")) {
-        addCountry.push({
-        ...item,
-        Country: "Japan"
-        });
-    } else if (item.Title.toLowerCase().includes("chinese")) {
-        addCountry.push({
-        ...item,
-        Country: "China"
-        });
-    } else {
-        addCountry.push(item);
-    }
-    });
 
-    // Xiao's top 3
-    const top3 = []
-    addCountry.forEach(item => {
-        if (item.Title.includes("Chinese Broccoli With Soy Paste")) {
-            top3.push({
-            ...item,
-            });
-        } else if (item.Title.includes("Korean Fried Chicken")) {
-            top3.push({
+        // Convert id from string to number
+        const changeId = onlyFoodData.map(item => {
+            return {
                 ...item,
-            });
-        } else if (item.Title.includes("Good Luck Beef and Korean Rice Cake Soup (Tteokguk)")) {
-            top3.push({
+                id: parseInt(item.id, 10) // Parse id to number
+            };
+        }).sort((a, b) => a.id - b.id); // Sort by id
+
+        // Add Country information
+        const addCountry = changeId.map(item => {
+            let country;
+            if (item.Title.toLowerCase().includes("korea")) {
+                country = "Korea";
+            } else if (item.Title.toLowerCase().includes("japan")) {
+                country = "Japan";
+            } else if (item.Title.toLowerCase().includes("chinese")) {
+                country = "China";
+            }
+            return {
                 ...item,
-            });
-        }
-    })
+                Country: country
+            };
+        });
 
-    console.log(top3);
-    return addCountry, top3;
+        // Filter top 3 items
+        const top3 = addCountry.filter(item => {
+            return (
+                item.Title.includes("Chinese Broccoli With Soy Paste") ||
+                item.Title.includes("Korean Fried Chicken") ||
+                item.Title.includes("Good Luck Beef and Korean Rice Cake Soup (Tteokguk)")
+            );
+        });
 
+        return { addCountry: addCountry, top3: top3 }; // Return as an object with the addCountry and top3 properties
     } catch (error) {
         throw error;
     }
 }
+
 
 async function readFile(filePath) {
     return new Promise((resolve, reject) => {

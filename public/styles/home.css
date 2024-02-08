@@ -100,8 +100,12 @@
     object-fit: cover;
 }
 
-/* Button */
 .main-home a {
+    color: var(--black-rgb);
+}
+
+/* Button */
+.main-home a:last-of-type {
     display: block;
     padding: 25px;
     border-radius: 10px;
@@ -112,11 +116,10 @@
     font-size: 18px;
     font-weight: bold;
     text-align: center;
-    text-decoration: none;
     transition: .4s;
 }
 
-.main-home a:hover {
+.main-home a:last-of-type:hover {
     background-color: transparent;
     color: var(--red);
 }

@@ -22,7 +22,7 @@ app.get('/gerechten', function(req, res) {
   res.render('pages/food');
 });
 
-// Fetch data
+// Fetch data Chat GPT
 const fs = require('fs');
 const path = require('path');
 
@@ -56,11 +56,7 @@ async function readFile(filePath) {
         });
     });
 }
-
 fetchData();
-
-
-
 
 
 // Port

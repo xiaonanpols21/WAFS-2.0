@@ -19,6 +19,10 @@ p {
     line-height: 30px;
 }
 
+a {
+    text-decoration: none;
+}
+
 .visually-hidden {
     position: absolute;
     width: 1px;

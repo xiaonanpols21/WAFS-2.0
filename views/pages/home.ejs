@@ -34,27 +34,15 @@
             <h1>Xiao's top 3</h1>
             <section>
                 <h3 class="visually-hidden">Xiao's top 3 lijst</h3>
-                <a href="">
-                    <article>
-                        <h2>Tteokbokki</h2>
-                        <p>Korea</p>
-                        <img src="./img/country-korea.jpg" alrt="Tteokbokki">
-                    </article>
-                </a>
-                <a href="">
-                    <article>
-                        <h2>Tteokbokki</h2>
-                        <p>Korea</p>
-                        <img src="./img/country-korea.jpg" alrt="Tteokbokki">
-                    </article>
-                </a>
-                <a href="">
-                    <article>
-                        <h2>Tteokbokki</h2>
-                        <p>Korea</p>
-                        <img src="./img/country-korea.jpg" alrt="Tteokbokki">
-                    </article>
-                </a>
+                <% top3.forEach(item => { %>
+                    <a href="">
+                        <article>
+                            <h2><%= item.Title %></h2>
+                            <p><%= item.Country %></p>
+                            <img src="/<%= item.Image %>" alt="Tteokbokki">
+                        </article>
+                    </a>
+                <% }); %>
            
 
                 <a href="/gerechten">Zie alle gerechten</a>

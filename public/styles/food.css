@@ -12,3 +12,11 @@
 .nav-food i {
     font-size: 25px;
 }
+
+.body-food .main-home a:last-of-type {
+    padding: 0px;
+    background-color: transparent;
+    border: transparent;
+    color: var(--black-rgb);
+    text-align: left;
+}

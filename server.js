@@ -12,18 +12,26 @@ app.set('view engine', 'ejs');
 
 // Pages
 app.get('/', function(req, res) {
-  res.render('pages/index');
+    res.render('pages/index');
 });
 
-app.get('/home', function(req, res) {
-  res.render('pages/home');
-});
+app.get('/home', async function(req, res) {
+    try {
+      const top3 = await fetchData();
+      res.render('pages/home', {
+          top3
+      });
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('Error fetching data');
+    }
+  });
 
 app.get('/gerechten', async function(req, res) {
   try {
-    const changeId = await fetchData();
+    const addCountry = await fetchData();
     res.render('pages/food', {
-      changeId
+        addCountry
     });
   } catch (error) {
     console.error(error);
@@ -53,28 +61,69 @@ async function fetchData() {
     // Zie prompts: https://chemical-bunny-323.notion.site/Chat-GPT-Documentatie-d93ea570990b4754bec559e9bfcc2217#a43f8e45789046b3bb341ba1de471d12
     const onlyFoodData = [];
     Object.keys(combinedData).forEach(item => {
-      const itemData = combinedData[item];
-      const itemDataArray = itemData.d;
+        const itemData = combinedData[item];
+        const itemDataArray = itemData.d;
 
-      onlyFoodData.push(...itemDataArray);
+        onlyFoodData.push(...itemDataArray);
     });
 
     // Convert id from string to number
     // Zie prompts: https://chemical-bunny-323.notion.site/Chat-GPT-Documentatie-d93ea570990b4754bec559e9bfcc2217#a43f8e45789046b3bb341ba1de471d12
     const changeId = onlyFoodData.map(item => {
-      return {
-        ...item,
-        id: parseInt(item.id, 10) // Parse id to number
-      };
-      
+        return {
+            ...item,
+            id: parseInt(item.id, 10) // Parse id to number
+        };
     }).sort((a, b) => a.id - b.id); // Sort, Zie prompts: https://chemical-bunny-323.notion.site/Chat-GPT-Documentatie-d93ea570990b4754bec559e9bfcc2217#29c2ce5ffaf14cf3bad06a80e652691d
 
-    console.log(changeId);
-    return changeId; // Return the array with parsed ids
+    // TODO: WIKI toevoegen
+    // Add Country
+    // Zie prompts: https://chemical-bunny-323.notion.site/Chat-GPT-Documentatie-d93ea570990b4754bec559e9bfcc2217#a0daa7e8785b49b0a24cafc58861c960
+    const addCountry = [];
+    changeId.forEach(item => {
+    if (item.Title.toLowerCase().includes("korea")) {
+        addCountry.push({
+        ...item,
+        Country: "Korea"
+        });
+    } else if (item.Title.toLowerCase().includes("japan")) {
+        addCountry.push({
+        ...item,
+        Country: "Japan"
+        });
+    } else if (item.Title.toLowerCase().includes("chinese")) {
+        addCountry.push({
+        ...item,
+        Country: "China"
+        });
+    } else {
+        addCountry.push(item);
+    }
+    });
 
-    
+    // Xiao's top 3
+    const top3 = []
+    addCountry.forEach(item => {
+        if (item.Title.includes("Chinese Broccoli With Soy Paste")) {
+            top3.push({
+            ...item,
+            });
+        } else if (item.Title.includes("Korean Fried Chicken")) {
+            top3.push({
+                ...item,
+            });
+        } else if (item.Title.includes("Good Luck Beef and Korean Rice Cake Soup (Tteokguk)")) {
+            top3.push({
+                ...item,
+            });
+        }
+    })
+
+    console.log(top3);
+    return addCountry, top3;
+
     } catch (error) {
-      throw error;
+        throw error;
     }
 }
 
@@ -92,5 +141,5 @@ async function readFile(filePath) {
 
 // Port
 app.listen(port, () => {
-  console.log(`EServer is listening on port ${port}`);
+    console.log(`EServer is listening on port ${port}`);
 });

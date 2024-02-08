@@ -13,11 +13,13 @@
         <main class="main-home">
             <section>
                 <h3 class="visually-hidden">Xiao's top 3 lijst</h3>
-                <article>
-                    <h2>Tteokbokki</h2>
-                    <p>Korea</p>
-                    <img src="./img/country-korea.jpg" alrt="Tteokbokki">
-                </article>
+                <% changeId.forEach(item => { %>
+                    <article>
+                        <h2><%= item.Title %></h2>
+                        <p>Korea</p>
+                        <img src="./img/country-korea.jpg" alt="Tteokbokki">
+                    </article>
+                <% }); %>
                 <article>
                     <h2>Tteokbokki</h2>
                     <p>Korea</p>

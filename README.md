@@ -1,5 +1,8 @@
 # WAFS-2.0
 
+## Uitgelegde code
+Voor al mijn JS code, heb ik een [WIKI](https://github.com/xiaonanpols21/WAFS-2.0/wiki) aangemaakt met uitgelegde code.
+
 ## Intro
 Voor dit project ga ik een recepten app maken waarbij gerechten komen uit Azië. 
 

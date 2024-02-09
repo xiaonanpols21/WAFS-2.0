@@ -35,15 +35,15 @@ app.get('/gerechten', async function(req, res) {
         let filteredData;
 
         if (country) {
-            const { addCountry } = await fetchData();
-            filteredData = addCountry.filter(item => item.Country === country);
+            const { addSlug } = await fetchData();
+            filteredData = addSlug.filter(item => item.Country === country);
         } else {
-            const { addCountry } = await fetchData(); // Corrected destructuring
-            filteredData = addCountry;
+            const { addSlug } = await fetchData(); // Corrected destructuring
+            filteredData = addSlug;
         }
 
         res.render('pages/food', {
-            addCountry: filteredData,
+            addSlug: filteredData,
 
             // Change title based on URL
             // Zie prompts: https://chemical-bunny-323.notion.site/Chat-GPT-Documentatie-d93ea570990b4754bec559e9bfcc2217#0f8df4dca8234cc0a8f2726e5a8a2b19
@@ -55,10 +55,30 @@ app.get('/gerechten', async function(req, res) {
     }
 });
 
+// TODO: /gerechte/:slug
 // Food single page
-app.get('/single', function(req, res) {
-    res.render('pages/single');
+// Zie prompts: https://chemical-bunny-323.notion.site/Chat-GPT-Documentatie-d93ea570990b4754bec559e9bfcc2217#1873125a962f4929a57c672bcf28ae4c
+app.get('/:slug', async function(req, res) {
+    try {
+        const data = await fetchData();
+        const { addSlug } = data;
+        const item = addSlug.find(item => item.Slug === req.params.slug);
+
+        if (!item) {
+            res.status(404).send('Item not found');
+            return;
+        }
+        res.render('pages/single', {
+            addSlug: item
+        });
+        
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error fetching data');
+    }
 });
+
+
 
 // 404
 app.use( async (req, res) => {
@@ -116,6 +136,19 @@ async function fetchData() {
             };
         });
 
+        // Add slug
+        // Bron: https://www.geeksforgeeks.org/how-to-convert-title-to-url-slug-using-javascript/
+        // Zie Prompts: https://chemical-bunny-323.notion.site/Chat-GPT-Documentatie-d93ea570990b4754bec559e9bfcc2217#3cadcb64c52840ebbefb621688ca2426
+        const addSlug = addCountry.map(item => {
+            let slug;
+            slug = item.Title.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, ''); // Assign the modified string to slug
+        
+            return {
+                ...item,
+                Slug: slug
+            }
+        });
+
         // Filter top 3 items
         const top3 = addCountry.filter(item => {
             return (
@@ -125,7 +158,7 @@ async function fetchData() {
             );
         });
 
-        return { addCountry: addCountry, top3: top3 }; // Return as an object with the addCountry and top3 properties
+        return { addSlug: addSlug, top3: top3 }; 
     } catch (error) {
         throw error;
     }

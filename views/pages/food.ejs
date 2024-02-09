@@ -24,8 +24,8 @@
         <main class="main-home">
             <section>
                 <h3 class="visually-hidden">Xiao's top 3 lijst</h3>
-                <% addCountry.forEach(item => { %>
-                    <a href="">
+                <% addSlug.forEach(item => { %>
+                    <a href="/<%= item.Slug %>">
                         <article>
                             <h2><%= item.Title %></h2>
                             <p><%= item.Country %></p>

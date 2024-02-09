@@ -79,8 +79,8 @@
     height: 110px;
 }
 
+/* Video */
 .section-start ul li video {
-    display: none;
     width: 125px;
     height: 170px;
     object-fit: cover;
@@ -98,10 +98,11 @@
     height: 110px;
 }
 
-.section-start ul li:hover video {
-    display: block;
-}
-
 .section-start ul li:hover img {
     display: none;
+}
+
+
+.section-start ul li:nth-of-type(2) img {
+    display: block;
 }

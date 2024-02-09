@@ -24,6 +24,10 @@ a {
     text-decoration: none;
 }
 
+.none {
+    display: none;
+}
+
 .visually-hidden {
     position: absolute;
     width: 1px;

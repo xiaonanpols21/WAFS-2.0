@@ -25,29 +25,29 @@ app.get('/home', async function(req, res) {
       console.error(error);
       res.status(500).send('Error fetching data');
     }
-  });
+});
 
-// TODO: WIKI en alles nalopen of code klopt
 // Filteren op Country met URL
 // Zie prompts: https://chemical-bunny-323.notion.site/Chat-GPT-Documentatie-d93ea570990b4754bec559e9bfcc2217#b44bf72ac5ed4c23bbce69e9ec82b7e5
 app.get('/gerechten', async function(req, res) {
     try {
-        const { country } = req.query; // Extract the country query parameter
+        const { country } = req.query; 
         let filteredData;
 
-        // Fetch and filter data based on the selected country if the country query parameter exists
         if (country) {
             const { addCountry } = await fetchData();
             filteredData = addCountry.filter(item => item.Country === country);
         } else {
-            // If no country is selected, fetch all data
             const { addCountry } = await fetchData(); // Corrected destructuring
             filteredData = addCountry;
         }
 
-        // Render the page with the filtered or normal data
         res.render('pages/food', {
-            addCountry: filteredData
+            addCountry: filteredData,
+
+            // Change title based on URL
+            // Zie prompts: https://chemical-bunny-323.notion.site/Chat-GPT-Documentatie-d93ea570990b4754bec559e9bfcc2217#0f8df4dca8234cc0a8f2726e5a8a2b19
+            country: country
         });
     } catch (error) {
         console.error(error);

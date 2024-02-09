@@ -7,7 +7,18 @@
         <nav class="nav-food">
             <a href="/home">
                 <i class="fa-solid fa-angle-left"></i>
-                <h1>Alle gerechten</h1>
+
+                <!-- Change title based on URL -->
+                <!-- Zie prompts: https://chemical-bunny-323.notion.site/Chat-GPT-Documentatie-d93ea570990b4754bec559e9bfcc2217#0f8df4dca8234cc0a8f2726e5a8a2b19 -->
+                <% if (country === "Korea") { %>
+                    <h1>Korea</h1>
+                <% } else if (country === "China") { %>
+                    <h1>China</h1>
+                <% } else if (country === "Japan") { %>
+                    <h1>Japan</h1>
+                <% } else { %>
+                    <h1>Alle gerechten</h1>
+                <% } %>
             </a>
         </nav>
         <main class="main-home">

@@ -3,6 +3,8 @@
 ## Uitgelegde code
 Voor al mijn code en bepaalde problemen, heb ik een [WIKI](https://github.com/xiaonanpols21/WAFS-2.0/wiki) aangemaakt waarin ik dat zal behandelen. 
 
+Voor bepaalde onderdelen heb ik gebruik gemaakt van Chat GPT. Op die plekken staat een URL met de PROMPTS. Alle PROMPTS en precies waar is hier te vinden: Chat [GPT PROMPTS](https://chemical-bunny-323.notion.site/Chat-GPT-Documentatie-d93ea570990b4754bec559e9bfcc2217?pvs=25)
+
 ## Intro
 Voor dit project ga ik een recepten app maken waarbij gerechten komen uit Azië. 
 

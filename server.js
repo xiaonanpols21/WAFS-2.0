@@ -143,3 +143,5 @@ async function readFile(filePath) {
 app.listen(port, () => {
     console.log(`EServer is listening on port ${port}`);
 });
+
+module.exports = app;

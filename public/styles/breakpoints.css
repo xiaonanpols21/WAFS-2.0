@@ -41,6 +41,13 @@
         grid-column-end: auto;
     }
 
+    /* 
+        Single
+    */
+    .section-single section {
+        display: flex;
+    }
+
 }
 
 @media (min-width: 768px) { 
@@ -122,6 +129,29 @@
     .main-home img {
         width: 120px;
     }
+
+    /* 
+        Single
+    */
+    .section-single > h2 {
+        font-size: 34px;
+        line-height: 37px;
+    }
+
+    .body-single .main-single h1 {
+        font-size: 42px;
+        line-height: 50px;
+    }
+
+    .main-single {
+        width: 500px;
+        margin: auto;
+    }
+
+    .main-single p:first-of-type {
+        font-size: 18px;
+        line-height: 30px;
+    }
 }
 
 @media (min-width: 1000px) { 
@@ -179,7 +209,7 @@
     /* 
         Home
     */
-    .body-home {
+    .body-home, .body-single {
         display: grid;
         grid-template-columns: 1fr 3fr;
         gap: 0px 50px;
@@ -187,12 +217,12 @@
         height: 100vh;
     }
 
-    .body-home > div:last-of-type, .body-home > div:first-of-type {
+    .body-home > div:last-of-type, .body-home > div:first-of-type, .body-single > div:first-of-type, .section-single {
         background-color: rgba(var(--red-rgb), 0.25);
         border-radius: 50px;
     }
 
-    .body-home > div:first-of-type {
+    .body-home > div:first-of-type, .body-single > div:first-of-type {
         padding: 30px;
     }
     .body-home > div:last-of-type {
@@ -278,5 +308,67 @@
 
     .body-404 .section-start ul {
         grid-row-end: 7;
+    }
+
+    /* 
+        Single 
+    */
+    .body-single {
+        grid-template-columns: 3fr 1fr;
+    }
+    .body-single .section-single {
+        padding: 30px 40px;
+    }
+
+    .body-single > div:first-of-type {
+        display: grid;
+        grid-template-columns: 380px 1fr;
+        gap: 40px;
+    }
+
+    .body-single .nav-food {
+        display: none;
+    }
+
+    .section-single {
+        margin: 0px;
+    }
+
+    .section-single section {
+        flex-direction: column;
+        padding: 5px;
+        margin: 0px;
+    }
+
+    .section-single section a {
+        flex-basis: auto;
+    }
+
+    .section-single article {
+        width: 270px;
+    }
+
+    .section-single > a:first-of-type {
+        width: 100%;
+    }
+
+    .main-single {
+        width: 100%;
+        padding: 0px;
+        margin: 10px 0px 0px 0px;
+    }
+
+    .hero {
+        width: 380px;
+        height: 380px;
+        z-index: 1;
+    }
+
+    .hero img {
+        border-radius: 30px;
+    }
+
+    .hero .overlay {
+        display: none;
     }
 }

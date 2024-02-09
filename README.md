@@ -3,7 +3,7 @@
 ## Uitgelegde code
 Voor al mijn code en bepaalde problemen, heb ik een [WIKI](https://github.com/xiaonanpols21/WAFS-2.0/wiki) aangemaakt waarin ik dat zal behandelen. 
 
-Voor bepaalde onderdelen heb ik gebruik gemaakt van Chat GPT. Op die plekken staat een URL met de PROMPTS. Alle PROMPTS en precies waar is hier te vinden: Chat [GPT PROMPTS](https://chemical-bunny-323.notion.site/Chat-GPT-Documentatie-d93ea570990b4754bec559e9bfcc2217?pvs=25)
+Voor bepaalde onderdelen heb ik gebruik gemaakt van Chat GPT. Op die plekken staat een URL met de PROMPTS. Alle PROMPTS en precies waar, is hier te vinden: [Chat GPT PROMPTS](https://chemical-bunny-323.notion.site/Chat-GPT-Documentatie-d93ea570990b4754bec559e9bfcc2217?pvs=25)
 
 ## Intro
 Voor dit project ga ik een recepten app maken waarbij gerechten komen uit Azië. 
@@ -106,8 +106,7 @@ async function fetchData() {
 ## Voortgang
 
 
-## Versies
-### Versie 1
+## Repo versie
 Oorspronkelijk begon ik met een repo die ik geforkt had van [WAFS](https://github.com/xiaonanpols21/web-app-from-scratch-2324) Daarin stopte ik al mijn gemaakte werk in docs als main root. Maar met de EJS workshop van docent had ik besloten om met EJS te gaan werken. Daardoor dacht ik dat het beter was om schoon te beginnen en om een nieuwe repo aan te maken. Daarom heet mijn huidige repo ook 2.0
 
 ![Originele repo](./public/readme-img/v1-1.png)

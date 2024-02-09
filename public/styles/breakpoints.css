@@ -144,6 +144,17 @@
         grid-row-start: 4;
     }
 
+    /* Video */
+    .section-start ul li:first-of-type video {
+        width: 210px;
+        height: 300px;
+    }
+    
+    .section-start ul li:last-of-type video {
+        width: 210px;
+        height: 190px;
+    }
+
     /* Gallery */
     .section-start ul {
         grid-template-columns: 210px 300px;

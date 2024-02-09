@@ -1,5 +1,3 @@
-console.log("Hello");
-
 // Play btn
 // Bron: https://stackoverflow.com/questions/27368778/how-to-toggle-audio-play-pause-with-one-button-or-link
 const doodKnop = document.querySelector('#dood-knop');

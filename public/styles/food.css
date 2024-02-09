@@ -1,12 +1,17 @@
 .nav-food {
     padding: 20px;
 }
-.nav-food a {
+.nav-food a, .nav-food button {
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 30px;
     color: var(--black-rgb);
+}
+
+.nav-food button {
+    background: none;
+    border: none;
 }
 
 .nav-food i {

@@ -55,6 +55,11 @@ app.get('/gerechten', async function(req, res) {
     }
 });
 
+// Food single page
+app.get('/single', function(req, res) {
+    res.render('pages/single');
+});
+
 // 404
 app.use( async (req, res) => {
     console.error("Error 404: page nog found");

@@ -3,6 +3,7 @@
 @import "./home.css";
 @import "./food.css";
 @import "./404.css";
+@import "./single.css";
 @import "./breakpoints.css";
 
 * {

@@ -1,7 +1,7 @@
 # WAFS-2.0
 
 ## Uitgelegde code
-Voor al mijn JS code, heb ik een [WIKI](https://github.com/xiaonanpols21/WAFS-2.0/wiki) aangemaakt met uitgelegde code.
+Voor al mijn code en bepaalde problemen, heb ik een [WIKI](https://github.com/xiaonanpols21/WAFS-2.0/wiki) aangemaakt waarin ik dat zal behandelen. 
 
 ## Intro
 Voor dit project ga ik een recepten app maken waarbij gerechten komen uit Azië. 
@@ -11,7 +11,7 @@ Landen die meegenomen worden tot nu toe:
 - China
 - Japan
 
-** Mogelijke functies in de app **
+**Mogelijke functies in de app**
 Sorteren
 -	A – Z
 -	Populaire
@@ -25,7 +25,7 @@ Filteren
 - Badges
 - (Reacties)
 
-** De app **
+**De app**
 De app wil ik Xiao foods noemen waarbij het startscherm informatie geeft over de auteur
 
 - Naam
@@ -35,6 +35,7 @@ De app wil ik Xiao foods noemen waarbij het startscherm informatie geeft over de
 
 ## Schetsen
 ![Schetsen](./public/readme-img/schetsen.jpg)
+Ik maakte eerst een simpele schets van wat mijn idee was. Een start scherm om de gebruiker voor het eerst te verwelkomen, een home page waarbij de gerechten worden gezien en dat je kan filteren op land. En dan als laatste een single page van de gerechten. 
 
 ## Design
 ![Design](./public/readme-img/design.jpg)
@@ -51,3 +52,8 @@ De data die ik ga fetchen voor mijn recepten komen van: [RAPID API Food recipes 
 Data die hier vandaan komt, heeft een gratis licentie voor een paar dagen. Net zoals bij het thema semester Information Design, sla ik de JSON file op en zet hem in het mapje public en wordt de data daar vandaan gefetcht, maar oorspronkelijk komt de data van Rapid API. 
 
 Ik had bepaalde code geschreven om de data te fetchen. Ik vond het best wel veel code dus ik vroeg aan docent of hij mij kon helpen om het korter te schrijven met 2 andere voorbeelden. Hij zei dat ik mij beter kon focussen om verder te werken aan project en om later te werken aan optimalisatie. Dus ik heb de code zo ge laten en ben verder gegaan met het bewerken van de data. 
+
+## Voortgang
+
+
+## Versies

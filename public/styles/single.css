@@ -1,0 +1,87 @@
+/* Hero */
+.hero {
+    position: relative;
+    height: 400px;
+    margin-bottom: 10px;
+}
+
+.hero img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0px 0px 50px 50px;
+    z-index: -1;
+}
+
+.hero i {
+    color: var(--white);
+    z-index: 1;
+}
+
+.hero .overlay {
+    border-radius: 0px 0px 50px 50px;
+}
+
+/* Main */
+.main-single {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+}
+
+.main-single h1 {
+    font-size: 34px;
+    line-height: 37px;
+}
+
+.main-single p:first-of-type {
+    margin-top: -20px;
+    font-size: 16px;
+    line-height: 28px;
+}
+
+/* Gerelateerde producten */
+.section-single {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-bottom: 20px;
+    margin-top: calc(50px - 20px);
+}
+.section-single > h2 {
+    font-size: 26px;
+    line-height: 31px;
+}
+
+.section-single section {
+    flex-direction: row;
+    overflow-x: auto;
+    margin: 0px -20px;
+    padding: 0px 20px;
+}
+
+.section-single section::-webkit-scrollbar {
+    display: none;
+  }
+
+.section-single section a {
+    flex-basis: 320px;
+    flex-shrink: 0;
+}
+
+.section-single > a:first-of-type {
+    padding: 10px 20px;
+    margin-left: auto;
+    width: fit-content;
+    font-weight: normal;
+}
+
+.section-single section a:last-of-type {
+    padding: 0px;
+    background-color: transparent;
+    border: none;
+    color: var(--black);
+    text-align: left;
+}

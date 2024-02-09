@@ -53,7 +53,63 @@ Data die hier vandaan komt, heeft een gratis licentie voor een paar dagen. Net z
 
 Ik had bepaalde code geschreven om de data te fetchen. Ik vond het best wel veel code dus ik vroeg aan docent of hij mij kon helpen om het korter te schrijven met 2 andere voorbeelden. Hij zei dat ik mij beter kon focussen om verder te werken aan project en om later te werken aan optimalisatie. Dus ik heb de code zo ge laten en ben verder gegaan met het bewerken van de data. 
 
+**Origineel fetchen:**
+```js
+const url = 'https://food-recipes-with-images.p.rapidapi.com/?q=korea';
+const options = {
+    method: 'GET',
+    headers: {
+        'X-RapidAPI-Key': 'c20e05d39emsh51bf7509082730ep146d0cjsn622276aaec1a',
+        'X-RapidAPI-Host': 'food-recipes-with-images.p.rapidapi.com'
+    }
+};
+
+async function fetchData() {
+    try {
+        const response = await fetch(url, options);
+        const result = await response.json();
+        console.log(result);
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+fetchData();
+```
+
+**Nieuw fetchen:**
+```js
+
+async function fetchData() {
+  try {
+    const koreaData = await readFile('./public/data/korea.json');
+    const chinaData = await readFile('./public/data/china.json');
+    const japanData = await readFile('./public/data/japan.json');
+
+    // Combine the data from all JSON files into a single array or object
+    const combinedData = {
+        korea: JSON.parse(koreaData),
+        china: JSON.parse(chinaData),
+        japan: JSON.parse(japanData)
+    };
+    console.log(combinedData);
+
+  } catch (error) {
+        console.error(error);
+    }
+}
+
+```
+
 ## Voortgang
 
 
 ## Versies
+### Versie 1
+Oorspronkelijk begon ik met een repo die ik geforkt had van [WAFS](https://github.com/xiaonanpols21/web-app-from-scratch-2324) Daarin stopte ik al mijn gemaakte werk in docs als main root. Maar met de EJS workshop van docent had ik besloten om met EJS te gaan werken. Daardoor dacht ik dat het beter was om schoon te beginnen en om een nieuwe repo aan te maken. Daarom heet mijn huidige repo ook 2.0
+
+![Originele repo](./public/readme-img/v1-1.png)
+
+De gemaakte code ik in de vorige repo had geplaatst ging ik gewoon kopiëren en plakken naar de huidige repo. 
+
+![Huidige repo](./public/readme-img/v1-2.png)

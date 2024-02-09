@@ -2,6 +2,7 @@
 @import "./start.css";
 @import "./home.css";
 @import "./food.css";
+@import "./404.css";
 @import "./breakpoints.css";
 
 * {

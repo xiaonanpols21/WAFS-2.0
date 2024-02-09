@@ -249,4 +249,23 @@
     .body-food .main-home section {
         grid-template-columns: 1fr 1fr 1fr 1fr;
     }
+
+    /* 
+        404 
+    */
+    .body-404 .section-start p:first-of-type {
+        grid-row-start: 3;
+    }
+
+    .body-404 .section-start p:last-of-type {
+        grid-row-start: 4;
+    }
+
+    .body-404 .section-start a {
+        grid-row-start: 5;
+    }
+
+    .body-404 .section-start ul {
+        grid-row-end: 7;
+    }
 }

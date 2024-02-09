@@ -55,6 +55,12 @@ app.get('/gerechten', async function(req, res) {
     }
 });
 
+// 404
+app.use( async (req, res) => {
+    console.error("Error 404: page nog found");
+    res.status(404).render("pages/404");
+});
+
 // Fetch data Chat GPT
 // Zie prompts: https://chemical-bunny-323.notion.site/Chat-GPT-Documentatie-d93ea570990b4754bec559e9bfcc2217#c241f811bf5f46e5850dbfca926e628a
 const fs = require('fs');

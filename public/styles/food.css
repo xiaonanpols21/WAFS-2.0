@@ -9,6 +9,14 @@
     color: var(--black-rgb);
 }
 
+.nav-food a {
+    transition: .4s;
+}
+
+.nav-food a:hover {
+    color: var(--red);
+}
+
 .nav-food button {
     background: none;
     border: none;

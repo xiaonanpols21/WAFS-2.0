@@ -33,6 +33,18 @@
     height: 230px;
     border-radius: 20px;
     object-fit: cover;
+    overflow: hidden;
+    transition: .4s;
+}
+
+.landen-cards a {
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.landen-cards a:hover img {
+    transform: scale(1.1);
+
 }
 
 .overlay {

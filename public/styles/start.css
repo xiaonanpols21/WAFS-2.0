@@ -107,6 +107,7 @@
 }
 
 /* Animation */
+/* Bron: https://codepen.io/xiao-nan-pols/pen/vYeYBpg?editors=0110 */
 @keyframes jump {
     0% {
         transform: translateY(0);

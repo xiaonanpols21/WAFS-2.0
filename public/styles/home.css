@@ -91,6 +91,7 @@
     padding: 10px;
     border-radius: 10px;
     background-color: var(--blue-50);
+    transition: .4s;
 }
 
 .main-home h2 {
@@ -109,6 +110,10 @@
 
 .main-home a {
     color: var(--black-rgb);
+}
+
+.main-home a:hover article {
+    transform: translateY(-10px);
 }
 
 /* Button */

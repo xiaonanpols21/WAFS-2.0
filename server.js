@@ -55,10 +55,9 @@ app.get('/gerechten', async function(req, res) {
     }
 });
 
-// TODO: /gerechte/:slug
 // Food single page
 // Zie prompts: https://chemical-bunny-323.notion.site/Chat-GPT-Documentatie-d93ea570990b4754bec559e9bfcc2217#1873125a962f4929a57c672bcf28ae4c
-app.get('/:slug', async function(req, res) {
+app.get('/gerechten/:slug', async function(req, res) {
     try {
         const data = await fetchData();
         const { addSlug } = data;
@@ -68,8 +67,15 @@ app.get('/:slug', async function(req, res) {
             res.status(404).send('Item not found');
             return;
         }
+
+        // Next 3 related items
+        // Zie prompts: https://chemical-bunny-323.notion.site/Chat-GPT-Documentatie-d93ea570990b4754bec559e9bfcc2217#561c4d97b2094d24beb69199d4edb32d
+        const index = addSlug.findIndex(item => item.Slug === req.params.slug);
+        const related = addSlug.slice(index + 1, index + 4);
+
         res.render('pages/single', {
-            addSlug: item
+            addSlug: item,
+            related: related
         });
         
     } catch (error) {
@@ -77,8 +83,6 @@ app.get('/:slug', async function(req, res) {
         res.status(500).send('Error fetching data');
     }
 });
-
-
 
 // 404
 app.use( async (req, res) => {
@@ -150,7 +154,7 @@ async function fetchData() {
         });
 
         // Filter top 3 items
-        const top3 = addCountry.filter(item => {
+        const top3 = addSlug.filter(item => {
             return (
                 item.Title.includes("Chinese Broccoli With Soy Paste") ||
                 item.Title.includes("Korean Fried Chicken") ||

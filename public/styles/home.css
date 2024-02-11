@@ -3,6 +3,7 @@
     flex-direction: column;
     gap: 50px;
 }
+
 /* Landen cards */
 .landen-cards {
     display: flex;
@@ -20,6 +21,11 @@
     position: relative;
 }
 
+.landen-cards a {
+    flex-basis: 240px;
+    flex-shrink: 0;
+}
+
 .landen-cards h2 {
     position: absolute;
     bottom: 20px;
@@ -29,7 +35,7 @@
 }
 
 .landen-cards img {
-    width: 240px;
+    width: 100%;
     height: 230px;
     border-radius: 20px;
     object-fit: cover;
@@ -44,7 +50,6 @@
 
 .landen-cards a:hover img {
     transform: scale(1.1);
-
 }
 
 .overlay {
@@ -103,7 +108,7 @@
     grid-row-start: 1;
     grid-row-end: 4;
     width: 90px;
-    height: 90px;
+    height: 100%;
     border-radius: 10px;
     object-fit: cover;
 }

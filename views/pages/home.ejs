@@ -36,7 +36,7 @@
                 <h3 class="visually-hidden">Xiao's top 3 lijst</h3>
                 
                 <% top3.forEach(item => { %>
-                    <a href="">
+                    <a href="/gerechten/<%= item.Slug %>">
                         <article>
                             <h2><%= item.Title %></h2>
                             <p><%= item.Country %></p>

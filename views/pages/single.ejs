@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="nl">
-<%- include('../partials/head'); %>
+<%- include('../partials/head-single'); %>
 
 <body class="body-single">
     <div>
@@ -23,27 +23,15 @@
     <section class="main-home section-single">
         <h2>Gerelateerde gerechten</h2>
         <section>
-            <a href="">
-                <article>
-                    <h2>Tteokbokki</h2>
-                    <p>Korea</p>
-                    <img src="/img/country-china.jpg" alt="Tteokbokki">
-                </article>
-            </a>
-            <a href="">
-                <article>
-                    <h2>Tteokbokki</h2>
-                    <p>Korea</p>
-                    <img src="/img/country-china.jpg" alt="Tteokbokki">
-                </article>
-            </a>
-            <a href="">
-                <article>
-                    <h2>Tteokbokki</h2>
-                    <p>Korea</p>
-                    <img src="/img/country-china.jpg" alt="Tteokbokki">
-                </article>
-            </a>
+            <% related.forEach(item => { %>
+                <a href="/gerechten/<%= item.Slug %>">
+                    <article>
+                        <h2><%= item.Title %></h2>
+                        <p><%= item.Country %></p>
+                        <img src="/<%= item.Image %>" alt="Tteokbokki">
+                    </article>
+                </a>
+            <% }); %>
         </section>
         <a href="/gerechten">Zie alle gerechten</a>
     </section>

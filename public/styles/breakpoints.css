@@ -41,6 +41,11 @@
         grid-column-end: auto;
     }
 
+    .main-home img {
+        grid-row-start: 1;
+        grid-row-end: 5;
+    }
+
     /* 
         Single
     */
@@ -209,7 +214,7 @@
     /* 
         Home
     */
-    .body-home, .body-single {
+    .body-home {
         display: grid;
         grid-template-columns: 1fr 3fr;
         gap: 0px 50px;
@@ -226,7 +231,7 @@
         padding: 30px;
     }
     .body-home > div:last-of-type {
-        padding: 40px 60px;
+        padding: 40px;
     }
 
     .landen-cards {
@@ -272,7 +277,7 @@
     */
     .body-food div {
         width: 90%;
-        margin: 50px auto auto auto;
+        margin: 50px auto 50px auto;
         padding: 50px;
         background-color: rgba(var(--red-rgb), 0.25);
         border-radius: 50px;
@@ -309,16 +314,25 @@
         Single 
     */
     .body-single {
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+        padding: 50px;
+    }
+    
+    .body-single {
         grid-template-columns: 3fr 1fr;
     }
     .body-single .section-single {
-        padding: 30px 40px;
+        padding: 40px 30px;
     }
 
     .body-single > div:first-of-type {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 40px;
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+        width: 700px;
+        margin: auto;
     }
 
     .body-single .nav-food {
@@ -330,29 +344,26 @@
     }
 
     .section-single section {
-        flex-direction: column;
-        padding: 5px;
-        margin: 0px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 20px;
+        padding: 5px 20px;
     }
 
     .section-single section a {
         flex-basis: auto;
     }
 
-
-    .section-single > a:first-of-type {
-        width: 100%;
-    }
-
     .main-single {
         width: 100%;
         padding: 0px;
-        margin: 10px 0px 0px 0px;
+        margin: 0px;
     }
 
     .hero {
         width: 100%;
         height: 380px;
+        margin: 0px;
         z-index: 1;
     }
 
@@ -362,5 +373,37 @@
 
     .hero .overlay {
         display: none;
+    }
+}
+
+@media (min-width: 1300px) {
+    /* 
+        Single 
+    */
+    .body-single {
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+        gap: 20px;
+    }
+
+    .body-single > div:first-of-type {
+        width: 100%;
+        height: 100%;
+    }
+
+    .main-single {
+        width: 700px;
+        margin: 0px auto;
+    }
+
+    .section-single section {
+        display: flex;
+        flex-direction: column;
+        padding: 5px;
+        margin: 0px;
+    }
+
+    .section-single > a:first-of-type {
+        width: 100%;
     }
 }

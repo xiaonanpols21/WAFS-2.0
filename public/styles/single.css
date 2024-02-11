@@ -85,3 +85,7 @@
     color: var(--black);
     text-align: left;
 }
+
+.section-single section a:last-of-type p {
+    font-weight: normal;
+}

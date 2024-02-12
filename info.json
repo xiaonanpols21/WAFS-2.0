@@ -1,0 +1,11 @@
+{
+    "firstName": "Xiao Nan",
+    "lastName": "Pols",
+    "avatar_url": "public/img/xiaonan.jpg",
+    "age": 22,
+    "city": "Den Oever",
+    "hobbies" : ["Drawing", "BTS", "Tik-Tok", "K-Drama", "Asian food"],
+    "truthsAndLies" : ["Ik ben gekocht", "Ik ben met een beroemd persoon op de foto die nu overleden is", "Ik heb een kat"],
+    "bio" : "Ik houd van de aziatische keuken. Graag neem ik jou mee om te kijken wat voor gerechten er allemaal zijn.",
+    "favouriteAnimal" : "Panda"
+}

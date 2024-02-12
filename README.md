@@ -103,9 +103,6 @@ async function fetchData() {
 
 ```
 
-## Voortgang
-
-
 ## Repo versie
 Oorspronkelijk begon ik met een repo die ik geforkt had van [WAFS](https://github.com/xiaonanpols21/web-app-from-scratch-2324) Daarin stopte ik al mijn gemaakte werk in docs als main root. Maar met de EJS workshop van docent had ik besloten om met EJS te gaan werken. Daardoor dacht ik dat het beter was om schoon te beginnen en om een nieuwe repo aan te maken. Daarom heet mijn huidige repo ook 2.0
 

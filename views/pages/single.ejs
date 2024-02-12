@@ -6,7 +6,7 @@
     <div>
         <section class="hero">
             <h1 class="visually-hidden">Gerecht pagina</h1>
-            <img src="<%= addSlug.Image %>">
+            <img src="<%= addSlug.Image %>" alt="<%= addSlug.Title %>">
             <nav class="nav-food">
                 <button>
                     <i class="fa-solid fa-angle-left"></i>
@@ -28,7 +28,7 @@
                     <article>
                         <h2><%= item.Title %></h2>
                         <p><%= item.Country %></p>
-                        <img src="/<%= item.Image %>" alt="Tteokbokki">
+                        <img src="/<%= item.Image %>" alt="<%= item.Title %>">
                     </article>
                 </a>
             <% }); %>

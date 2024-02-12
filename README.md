@@ -116,5 +116,5 @@ De gemaakte code ik in de vorige repo had geplaatst ging ik gewoon kopiëren en 
 ![Huidige repo](./public/readme-img/v1-2.png)
 
 ## Meer weten?
-[Code uitleg WIKI en meer](https://github.com/xiaonanpols21/WAFS-2.0/wiki)
-[Chat GPT PROMPTS](https://chemical-bunny-323.notion.site/Chat-GPT-Documentatie-d93ea570990b4754bec559e9bfcc2217?pvs=25)
+- [Code uitleg WIKI en meer](https://github.com/xiaonanpols21/WAFS-2.0/wiki)
+- [Chat GPT PROMPTS](https://chemical-bunny-323.notion.site/Chat-GPT-Documentatie-d93ea570990b4754bec559e9bfcc2217?pvs=25)

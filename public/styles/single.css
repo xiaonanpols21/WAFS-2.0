@@ -89,3 +89,7 @@
 .section-single section a:last-of-type p {
     font-weight: normal;
 }
+
+.section-single section a:last-of-type:hover {
+    color: var(--black);
+}

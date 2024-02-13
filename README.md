@@ -1,5 +1,7 @@
 # WAFS-2.0
 
+![Thumbnail](./public/readme-img/thumbnail.jpg)
+
 ## Uitgelegde code
 Voor al mijn code en bepaalde problemen, heb ik een [WIKI](https://github.com/xiaonanpols21/WAFS-2.0/wiki) aangemaakt waarin ik dat zal behandelen. 
 

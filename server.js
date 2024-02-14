@@ -9,10 +9,6 @@ const port = 3000;
 // Public, View
 app.use(express.static('public'))
 
-// Bram > dat je info.json kan ophalen vanaf de live url
-app.use((req, res) => {
-    res.header('Access-Control-Allow-Origin', req.get('Origin') || '*')
-})
 app.set('view engine', 'ejs');
 
 // Pages

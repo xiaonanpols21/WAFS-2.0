@@ -26,7 +26,6 @@ app.get('/', async function(req, res) {
     }
 });
 
-
 app.get('/home', async function(req, res) {
     try {
       const {top3} = await fetchData();

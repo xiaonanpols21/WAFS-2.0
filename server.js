@@ -15,7 +15,7 @@ app.set('view engine', 'ejs');
 app.get('/', async function(req, res) {
     try {
         const data = await getData();
-        console.log(data)
+        //console.log(data)
 
         res.render('pages/index', {
             data: data 
@@ -105,7 +105,7 @@ app.use( async (req, res) => {
 // Zie prompts: https://chemical-bunny-323.notion.site/Chat-GPT-Documentatie-d93ea570990b4754bec559e9bfcc2217#7d68ee3f70f14a959a906a5d5bd918e0
 async function getData() {
     try {
-        const data = await readFile('./info.json');
+        const data = await readFile('./public/info.json');
         return JSON.parse(data); // Parse the JSON data and return it
     } catch (error) {
         throw error;
